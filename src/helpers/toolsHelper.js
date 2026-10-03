@@ -1,19 +1,22 @@
-import Swal from "sweetalert2";
-
 const base = { confirmButtonColor: "#4f46e5" };
 
+// SweetAlert2 dimuat saat dialog pertama dibutuhkan (bukan di bundle awal)
+const fire = async (options) => {
+  const { default: Swal } = await import("sweetalert2");
+  return Swal.fire({ ...base, ...options });
+};
+
 export const showSuccessDialog = (message) =>
-  Swal.fire({ ...base, icon: "success", title: "Berhasil", text: message });
+  fire({ icon: "success", title: "Berhasil", text: message });
 
 export const showErrorDialog = (message) =>
-  Swal.fire({ ...base, icon: "error", title: "Gagal", text: message });
+  fire({ icon: "error", title: "Gagal", text: message });
 
 export const showWarningDialog = (message) =>
-  Swal.fire({ ...base, icon: "warning", title: "Perhatian", text: message });
+  fire({ icon: "warning", title: "Perhatian", text: message });
 
 export async function showConfirmDialog(message, confirmText = "Ya") {
-  const result = await Swal.fire({
-    ...base,
+  const result = await fire({
     icon: "question",
     title: "Konfirmasi",
     text: message,
