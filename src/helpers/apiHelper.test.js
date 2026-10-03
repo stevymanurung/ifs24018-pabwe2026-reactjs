@@ -7,8 +7,8 @@ import {
   removeAccessToken,
 } from "./apiHelper";
 
-const mockFetch = (json) =>
-  vi.fn().mockResolvedValue({ json: () => Promise.resolve(json) });
+const mockFetch = (json, ok = true) =>
+  vi.fn().mockResolvedValue({ ok, json: () => Promise.resolve(json) });
 
 describe("apiHelper", () => {
   beforeEach(() => localStorage.clear());
@@ -59,6 +59,17 @@ describe("apiHelper", () => {
     const form = new FormData();
     await apiFetch("/x", { method: "POST", body: form });
     expect(fetchMock.mock.calls[1][1].body).toBe(form);
+  });
+
+  it("tetap sukses bila respons tidak memuat field success", async () => {
+    vi.stubGlobal("fetch", mockFetch({ message: "Berhasil login", data: { token: "t" } }));
+    const json = await apiFetch("/auth/login");
+    expect(json.data.token).toBe("t");
+  });
+
+  it("melempar error dengan pesan server ketika HTTP tidak ok", async () => {
+    vi.stubGlobal("fetch", mockFetch({ message: "Tidak diizinkan" }, false));
+    await expect(apiFetch("/x")).rejects.toThrow("Tidak diizinkan");
   });
 
   it("melempar error dengan pesan server ketika success=false", async () => {

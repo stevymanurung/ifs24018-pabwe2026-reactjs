@@ -24,7 +24,9 @@ export async function apiFetch(path, { method = "GET", params = {}, body } = {})
 
   const response = await fetch(url, init);
   const json = await response.json();
-  if (!json.success) {
+  // Sukses bila HTTP 2xx dan API tidak secara eksplisit menandai success=false
+  // (respons sukses API tidak selalu memuat field `success`).
+  if (!response.ok || json.success === false) {
     throw new Error(json.message);
   }
   return json;
