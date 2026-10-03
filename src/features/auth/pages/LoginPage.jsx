@@ -35,14 +35,14 @@ export default function LoginPage() {
         <p className="mt-1 text-sm text-slate-500">Selamat datang kembali, silakan masuk ke akunmu.</p>
       </div>
       <div>
-        <label htmlFor="email" className="label">Email</label>
-        <input id="email" type="email" value={email} onChange={onEmail} placeholder="nama@email.com" className="input" />
+        <label htmlFor="login-email-input" className="label">Email</label>
+        <input id="login-email-input" type="email" value={email} onChange={onEmail} placeholder="nama@email.com" className="input" />
       </div>
       <div>
-        <label htmlFor="password" className="label">Kata Sandi</label>
-        <input id="password" type="password" value={password} onChange={onPassword} placeholder="Masukkan kata sandi" className="input" />
+        <label htmlFor="login-password-input" className="label">Kata Sandi</label>
+        <input id="login-password-input" type="password" value={password} onChange={onPassword} placeholder="Masukkan kata sandi" className="input" />
       </div>
-      <button type="submit" className="btn btn-primary w-full">Masuk</button>
+      <button id="login-submit-button" type="submit" className="btn btn-primary w-full">Masuk</button>
       <p className="text-center text-sm text-slate-500">
         Belum punya akun? <Link to="/auth/register" className="font-semibold text-indigo-600 hover:underline">Daftar</Link>
       </p>
