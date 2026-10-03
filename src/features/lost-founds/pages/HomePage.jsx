@@ -219,7 +219,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-lg font-extrabold leading-snug group-hover:text-indigo-700">{item.title}</h3>
                   <p className="line-clamp-2 text-sm text-slate-600">{item.description}</p>
-                  <p className="text-xs text-slate-400">{formatDate(item.created_at)}</p>
+                  <p className="text-xs text-slate-500">{formatDate(item.created_at)}</p>
                 </div>
               </Link>
               <div className="flex gap-2 border-t border-slate-100 p-3">

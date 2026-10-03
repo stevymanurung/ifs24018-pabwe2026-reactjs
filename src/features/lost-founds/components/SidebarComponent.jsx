@@ -21,7 +21,7 @@ export default function SidebarComponent({ open, onClose }) {
         className={`fixed inset-y-0 left-0 z-40 w-64 border-r border-slate-200 bg-white p-4 pt-20 transition-transform lg:translate-x-0 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}>
-        <p className="mb-3 px-3 text-xs font-bold uppercase tracking-wider text-slate-400">Menu</p>
+        <p className="mb-3 px-3 text-xs font-bold uppercase tracking-wider text-slate-500">Menu</p>
         <nav className="space-y-1">
           {items.map(({ path, hash: itemHash, label, Icon }) => (
             <Link key={label} to={`${path}${itemHash}`} onClick={onClose}

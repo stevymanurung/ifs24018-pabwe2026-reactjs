@@ -20,7 +20,7 @@ describe("AuthLayout", () => {
   it("menampilkan banner dan konten anak bila belum login", () => {
     renderWithProviders(ui, { route: "/auth/login" });
     expect(screen.getByText("Form Login")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /Lost & Founds/ })).toBeInTheDocument();
+    expect(screen.getAllByText(/Lost & Founds/).length).toBeGreaterThan(0);
   });
 
   it("mengalihkan ke beranda bila token sudah ada", () => {

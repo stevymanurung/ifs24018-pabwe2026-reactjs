@@ -21,7 +21,7 @@ export default function AuthLayout() {
         <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-violet-400/20 blur-3xl" />
         <div className="relative">
           <img src="/logo.svg" alt="" className="h-14 w-14 rounded-2xl shadow-lg" />
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight">Lost &amp; Founds</h1>
+          <p className="mt-6 text-4xl font-extrabold tracking-tight">Lost &amp; Founds</p>
           <p className="mt-3 max-w-md text-indigo-100">
             Laporkan barang hilang, temukan pemiliknya, dan bantu sesama sivitas kampus.
           </p>

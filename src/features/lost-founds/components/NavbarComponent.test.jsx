@@ -20,7 +20,7 @@ describe("NavbarComponent", () => {
 
   it("menampilkan logo, judul, status sesi aktif, nama & foto profil", () => {
     setup({ name: "Budi", photo: "img/b.png" });
-    expect(screen.getByAltText("Budi")).toBeInTheDocument();
+    expect(screen.getByRole("presentation")).toBeInTheDocument();
     expect(screen.getByAltText("Logo")).toBeInTheDocument();
     expect(screen.getByText("Sesi aktif")).toBeInTheDocument();
   });

@@ -31,7 +31,7 @@ export default function LoginPage() {
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-5">
       <div>
-        <h2 className="text-2xl font-extrabold tracking-tight">Masuk</h2>
+        <h1 className="text-2xl font-extrabold tracking-tight">Masuk</h1>
         <p className="mt-1 text-sm text-slate-500">Selamat datang kembali, silakan masuk ke akunmu.</p>
       </div>
       <div>

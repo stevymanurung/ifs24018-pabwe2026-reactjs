@@ -5,7 +5,7 @@ import Avatar from "./Avatar";
 describe("Avatar", () => {
   it("menampilkan foto bila tersedia", () => {
     render(<Avatar name="Budi" photo="img/b.png" />);
-    expect(screen.getByAltText("Budi")).toHaveAttribute("src", "https://open-api.delcom.org/img/b.png");
+    expect(screen.getByRole("presentation")).toHaveAttribute("src", "https://open-api.delcom.org/img/b.png");
   });
 
   it("menampilkan inisial bila foto kosong, dengan kelas custom", () => {
